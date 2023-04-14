@@ -106,7 +106,6 @@ interface IZkBobDirectDeposits {
 }
 
 
-// utilise the above interface to write a contract inorder to send a direct deposit to a zk zkAddress
 
 
 
