@@ -1,0 +1,11 @@
+[Circuit_Version]
+RLN_Version = 1
+
+[Circuit_Build]
+Circom_Version = "circom compiler 2.1.4"
+GitHub_URL = "https://github.com/Rate-Limiting-Nullifier/rln-circuits.git"
+
+[Files]
+Wasm = "rln.wasm"
+Zkey = "rln_final.zkey"
+Verification_Key = "verification_key.json"
