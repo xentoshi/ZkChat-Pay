@@ -1,0 +1,41 @@
+{
+	"name": "zk-chatpay",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"marketplace": "npx create-web3-dapp marketplace"
+	},
+	"dependencies": {
+		"@aave/contract-helpers": "^1.15.0",
+		"@aave/math-utils": "^1.15.0",
+		"@chakra-ui/react": "^2.5.5",
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@rainbow-me/rainbowkit": "^0.12.4",
+		"@worldcoin/idkit": "^0.4.6",
+		"alchemy-sdk": "^2.6.2",
+		"clsx": "^1.2.1",
+		"framer-motion": "^10.11.2",
+		"next": "13.1.2",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-hook-form": "^7.43.9",
+		"react-scroll-to-bottom": "^4.2.0",
+		"rlnjs": "^2.0.8",
+		"socket.io-client": "^4.6.1",
+		"wagmi": "^0.12.6"
+	},
+	"devDependencies": {
+		"@types/react": "18.0.35",
+		"autoprefixer": "^10.4.14",
+		"eslint": "8.36.0",
+		"eslint-config-next": "13.2.4",
+		"postcss": "^8.4.21",
+		"tailwindcss": "^3.3.1",
+		"typescript": "5.0.4"
+	}
+}
