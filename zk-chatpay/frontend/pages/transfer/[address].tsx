@@ -1,23 +1,46 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { ethers } from "ethers";
 import { useForm } from "react-hook-form";
+import { useAccount } from "wagmi";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { BigNumber } from "ethers";
 import Avatar from "public/imgs/avatar.png";
+import { connectBobContract, connectDDContract } from "@utils/contracts";
 
 const AddressProfil: React.FC = () => {
   const router = useRouter();
   const { address } = router.query;
   const {
     register,
-    handleSubmit: withForm,
+    handleSubmit,
+    setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm<{ zkAddress: string; amount: string }>();
+  const { address: senderAdd } = useAccount();
 
   const handleTransfer = useCallback(
-    withForm((data) => {
-      console.log("data", data);
+    handleSubmit(async (data: any) => {
+      try {
+        const { bobContract } = await connectBobContract();
+        const { DDContract } = await connectDDContract();
+        let amount = BigNumber.from(data.amount);
+        let bobTx = await bobContract.approve(
+          "0xE4C77B7787cC116A5E1549c5BB36DE07732100Bb",
+          amount
+        );
+        debugger;
+        let DDTX = await DDContract.directDeposit(
+          ethers.utils.getAddress(senderAdd),
+          amount,
+          data.zkAddress
+        );
+        debugger;
+      } catch (err) {
+        console.log(err);
+      }
     }),
-    []
+    [connectBobContract]
   );
 
   return (
@@ -43,20 +66,23 @@ const AddressProfil: React.FC = () => {
             <input
               id="zkAddress"
               className="pl-[4px] bg-transparent border border-white rounded-[4px]"
-              {...(register("addAddress"), { required: true })}
+              {...(register("zkAddress"), { required: true })}
+              onChange={(e) => setValue("zkAddress", e.target.value)}
             />
-            {errors.addAddress && (
+            {errors.zkAddress && (
               <span className="text-red-600">This field is required</span>
             )}
           </div>
           <div className="flex flex-row">
-            <label htmlFor="zkAddress" className="mr-[10px] w-[90px]">
+            <label htmlFor="amount" className="mr-[10px] w-[90px]">
               amount:
             </label>
             <input
               id="amount"
+              type="number"
               className="pl-[4px] bg-transparent border border-white rounded-[4px]"
               {...(register("amount"), { required: true })}
+              onChange={(e) => setValue("amount", e.target.value)}
             />
             {errors.amount && (
               <span className="text-red-600">This field is required</span>
