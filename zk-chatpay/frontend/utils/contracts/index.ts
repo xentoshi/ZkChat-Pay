@@ -46,3 +46,7 @@ export const connectDDContract = async () => {
     throw new Error("sorry something went wrong");
   }
 };
+
+export const HttpProvider = new ethers.providers.JsonRpcProvider(
+  "https://rpc.ankr.com/eth_goerli"
+);
