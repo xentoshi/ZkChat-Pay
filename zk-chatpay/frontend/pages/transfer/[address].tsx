@@ -17,8 +17,14 @@ const AddressProfil: React.FC = () => {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
-  } = useForm<{ zkAddress: string; amount: string }>();
+  } = useForm<{ zkAddress: string; amount: number }>({
+    defaultValues: {
+      zkAddress: "",
+      amount: 0,
+    },
+  });
   const { address: senderAdd } = useAccount();
 
   const _handleTransfer = useCallback(
@@ -37,11 +43,13 @@ const AddressProfil: React.FC = () => {
           amount,
           data.zkAddress
         );
-        alert(`Deposited successfully! hash: ${DDTX.hash}`);
+        alert(`Deposite transaction sent successfully! hash: ${DDTX.hash}`);
       } catch (err) {
         if (err.code === "ACTION_REJECTED")
           alert("User rejected the transaction");
-        else {
+        else if (err.message.includes("Goerli")) {
+          alert("Please change network to Goerli");
+        } else {
           alert("Somethign went wrong");
         }
       }
@@ -74,7 +82,7 @@ const AddressProfil: React.FC = () => {
             </label>
             <input
               id="zkAddress"
-              className="pl-[4px] w-[265px] bg-transparent border border-white rounded-[4px]"
+              className="px-[4px] w-[265px] bg-transparent border border-white rounded-[4px]"
               {...(register("zkAddress"), { required: true })}
               onChange={(e) => setValue("zkAddress", e.target.value)}
             />
@@ -94,9 +102,10 @@ const AddressProfil: React.FC = () => {
               id="amount"
               type="number"
               className="pl-[4px] w-[265px] bg-transparent border border-white rounded-[4px]"
+              defaultValue={0}
               {...(register("amount"),
               { required: true, min: 100000000000000000 })}
-              onChange={(e) => setValue("amount", e.target.value)}
+              onChange={(e) => setValue("amount", parseFloat(e.target.value))}
             />
             {errors.amount && (
               <span className="text-red-600">This field is required</span>
