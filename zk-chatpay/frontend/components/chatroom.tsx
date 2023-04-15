@@ -13,14 +13,13 @@ import ethers from 'ethers';
 
 // import and use a number of type bigint
 
-
+const _registry = new Registry()
 
 function ChatRoom({ socket, username, room }) {
 
   const [epoch, setEpoch] = useEpoch(BigInt(1));
   const [appID, setAppID] = useAppID(BigInt(12345674590));
 
-  const _registry = new Registry()
 
 
   const rln = new RLN(
@@ -31,7 +30,17 @@ function ChatRoom({ socket, username, room }) {
 
   );
   
+  const signal = "This is a test signal"
+
+
+ async function generateProofWrapper(signal, merkleProof, epoch) {
+    const proof = await rln.generateProof(signal, merkleProof, epoch);
+    console.log(proof,'proof');
+  }
+  
   _registry.addMember(rln.commitment)
+
+  const merkleProof = _registry.generateMerkleProof(rln.commitment) 
 
   console.log(rln, _registry);
   
@@ -42,6 +51,8 @@ function ChatRoom({ socket, username, room }) {
 
 
   const sendMessage = async () => {
+
+    await generateProofWrapper(signal,merkleProof,epoch);
     if (currentMessage !== "") {
       const messageData = {
         room: room,
