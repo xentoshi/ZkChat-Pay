@@ -29,6 +29,11 @@ zkBob `directDeposit`
 
 The project integrated the `directDeposit` operation in `/transfer` page, which allows users to send BOB directly to someone's zkAddress from our project.
 
+
+# GHO
+
+GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.
+
 / - landing pg
 
 /chat - chat page
