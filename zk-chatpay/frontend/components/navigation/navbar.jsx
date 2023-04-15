@@ -13,6 +13,9 @@ export default function Navbar() {
 			<Link href="/fund">
 				<button className="rounded-full bg-indigo-400 p-4">Fund</button>
 			</Link>
+			<Link href="/swap">
+				<button className="rounded-full bg-indigo-400 p-4">1inchSwap</button>
+			</Link>
 			<Link href="/planet">
 				<button className="rounded-full bg-indigo-400 p-4">Planet</button>
 			</Link>
