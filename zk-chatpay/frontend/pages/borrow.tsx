@@ -4,8 +4,16 @@ import { Pool, InterestRate } from '@aave/contract-helpers';
 import { EthereumTransactionTypeExtended } from '@aave/contract-helpers';
 import { Web3Provider } from '@ethersproject/providers';
 import { BigNumber } from 'ethers';
-import ethers from 'ethers';
+import {ethers} from 'ethers';
 import { useEffect } from 'react';
+
+/*
+- @param `user` The ethereum address that repays 
+- @param `reserve` The ethereum address of the reserve on which the user borrowed
+- @param `amount` The amount to repay, or (-1) if the user wants to repay everything
+- @param `interestRateMode` // Whether the borrow will incur a stable (InterestRate.Stable) or variable (InterestRate.Variable) interest rate
+- @param @optional `onBehalfOf` The ethereum address for which user is repaying. It will default to the user address
+*/
 
 const BorrowForm = () => {
 
@@ -21,13 +29,10 @@ const BorrowForm = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.ethereum) {
-      console.log(ethers);
-      // const provider = new ethers.providers.JsonRpcProvider('https://goerli.infura.io/v3/95f3b4611a8b480cb893abd71579bf09');
+      const provider = new ethers.providers.JsonRpcProvider('https://goerli.infura.io/v3/95f3b4611a8b480cb893abd71579bf09');
       setProvider(provider);
     }
   }, []);
-  
-
 
   const submitTransaction = async (provider: any, tx: any) => {
     const extendedTxData = await tx.tx();
@@ -37,6 +42,7 @@ const BorrowForm = () => {
       ...txData,
       value: txData.value ? BigNumber.from(txData.value) : undefined,
     });
+    console.log(txResponse,'txresp');
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -53,8 +59,7 @@ const BorrowForm = () => {
       amount,
       interestRateMode,
       debtTokenAddress: '0x80aa933EfF12213022Fd3d17c2c59C066cBb91c7',
-      onBehalfOf,
-      referralCode,
+      onBehalfOf
     });
 
     await submitTransaction(provider, tx);
@@ -75,7 +80,6 @@ const BorrowForm = () => {
           </select>
           <Input placeholder="Debt token address" value={debtTokenAddress} onChange={(event) => setDebtTokenAddress(event.target.value)} />
           <Input placeholder="On behalf of" value={onBehalfOf} onChange={(event) => setOnBehalfOf(event.target.value)} />
-          <Input placeholder="Referral code" value={referralCode} onChange={(event) => setReferralCode(event.target.value)} />
           <Button className='rounded-full text-black bg-indigo-400 p-4' type="submit">Borrow GHO</Button>
         </VStack>
       </form>
