@@ -15,6 +15,11 @@ Group chat functionality: Providing the ability for users to create and join gro
 Public Goods Projects that need to be funded are listed on /fund pg. Users can fund the projects using crosschain tokens.
 ![image](https://user-images.githubusercontent.com/95926324/232115490-472ef0b2-904d-4a7d-9431-dce549a8f913.png)
 
+## Bounties 
+
+Sismo Integration
+
+Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
 
 / - landing pg
 
