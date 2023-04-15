@@ -29,6 +29,7 @@
 		"react-dom": "18.2.0",
 		"react-hook-form": "^7.43.9",
 		"react-scroll-to-bottom": "^4.2.0",
+		"reflect-metadata": "^0.1.13",
 		"rlnjs": "^2.0.8",
 		"socket.io-client": "^4.6.1",
 		"test-rlnjs": "^2.1.4",
