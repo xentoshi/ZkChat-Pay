@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import styles from "../styles/chat.module.css";
-import { RLN, VerificationKey } from "rlnjs";
+import { RLN, VerificationKey } from "test-rlnjs";
 import vkey from '../rln/verification_key.json';
-import { RLNFullProof, StrBigInt } from 'rlnjs/dist/types/types';
+import { RLNFullProof, StrBigInt } from 'test-rlnjs/dist/types/types';
 // import { addNewUser } from "./store/users";
 import { useEpoch, useAppID, usePublishQueue, usePublishedMsgProofs }  from '../store/store';
-import { Registry } from 'rlnjs';
+import { Registry } from 'test-rlnjs';
 import ethers from 'ethers';
 // import * as PushAPI from "@pushprotocol/restapi";
 
@@ -19,20 +19,20 @@ function ChatRoom({ socket, username, room }) {
   const [epoch, setEpoch] = useEpoch(BigInt(1));
   const [appID, setAppID] = useAppID(BigInt(12345674590));
 
-  // const _registry = new Registry()
+  const _registry = new Registry()
 
 
-  // const rln = new RLN(
-  //   '/rln/rln.wasm',
-  //   '/rln/rln_final.zkey',
-  //    vkey as VerificationKey,
-  //    appID as bigint
+  const rln = new RLN(
+    '/rln/rln.wasm',
+    '/rln/rln_final.zkey',
+     vkey as VerificationKey,
+     appID as bigint
 
-  // );
+  );
   
-  // _registry.addMember(rln.commitment)
+  _registry.addMember(rln.commitment)
 
-  // console.log(rln, _registry);
+  console.log(rln, _registry);
   
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
