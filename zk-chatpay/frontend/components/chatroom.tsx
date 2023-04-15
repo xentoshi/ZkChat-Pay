@@ -11,7 +11,7 @@ import ethers from 'ethers';
 import { Alchemy, Network } from "alchemy-sdk";
 
 const config = {
-  apiKey: "EqjP7vuEbc9IVNQwXOTXL479afqc8ulv",
+  apiKey: "",
   network: Network.ETH_MAINNET,
 };
 const alchemy = new Alchemy(config);
@@ -35,12 +35,6 @@ function ChatRoom({ socket, username, room }) {
   const [epoch, setEpoch] = useEpoch(BigInt(1));
   const [appID, setAppID] = useAppID(BigInt(12345674590));
 
-  const getNfts = async () => {
-    const nft = await alchemy.nft.getNftsForOwner("elanhalpern.eth");
-    console.log(nft);
-  };
-
-  getNfts();
 
   const rln = new RLN(
     '/rln/rln.wasm',
@@ -63,7 +57,21 @@ function ChatRoom({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
-//   addNewUser();
+//   Alchemy
+  const getNft = async () => {
+    const nft = await alchemy.nft.getNftsForOwner("0x6426f98F4728Fb8D2D8904c55983Be4c3132be6D");
+    console.log(nft.ownedNfts[0].rawMetadata);
+
+    // iterate over the nfts and get the metadata of img and store it in an array
+    const nftMetadata = [];
+    // for (let i = 0; i < nft.ownedNfts.length; i++) {
+    //   const metadata = await nft.ownedNfts[i].image();
+    //   nftMetadata.push(metadata);
+    // }
+    // console.log(nftMetadata);
+  };
+
+  getNft();
 
   const sendMessage = async () => {
 
@@ -133,6 +141,9 @@ function ChatRoom({ socket, username, room }) {
                 id={username === messageContent.author ? "you" : "other"}
               >
                 <div>
+                  <div className={styles.avatar}>
+                    <img className="h-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8qaWV3oCbs5Q9-HE0J50Wi5uAZlCyUdkQ3A&usqp=CAU" alt="Avatar" />
+                  </div>
                   <div className={styles.messagecontent}>
                     <p>{messageContent.message}</p>
                   </div>
