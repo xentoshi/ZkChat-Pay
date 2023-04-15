@@ -35,18 +35,17 @@ export default function Home() {
 					onSuccess={onSuccess}
 					handleVerify={handleProof}
 					app_id="app_staging_e77bb67150ed4393c95a024501a7d7cd"
-					// walletConnectProjectId="get_this_from_walletconnect_portal"
 				>
 					{({ open }) => <button onClick={open} className="rounded-full p-4 bg-indigo-400">Sign in with Worldcoin</button>}
 				</IDKitWidget>
 			</div>
-			<div className="card-container grid gap-5 md:grid-cols-4">
+			<div className="grid gap-7 md:grid-cols-4">
 				{projects.map((project, index) => (
 					<FundCard
 						key={index}
 						title={project.title}
 						description={project.description}
-						image={project.image}
+						image={project.imageUrl}
 						isFunded = {project.isFunded}
 						nameOfProject = {project.projectName}
 						location={project.location}

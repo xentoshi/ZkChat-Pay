@@ -45,9 +45,9 @@ export default function FormForProjects() {
                 <Input {...register("funding", { type: "number" })} className="text-black"/>
               </FormControl>
               <FormControl isInvalid={errors.email}>
-                <FormLabel>Email Address</FormLabel>
+                <FormLabel>Room No.</FormLabel>
                 <Input
-                  {...register("email", { required: "Email Address is required" })} className="text-black"
+                  {...register("room", { required: "Email Address is required" })} className="text-black"
                 />
                 {errors.email && (
                   <p role="alert" style={{ color: "red" }}>

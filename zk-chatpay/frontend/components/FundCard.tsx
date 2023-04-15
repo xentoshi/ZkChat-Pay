@@ -24,14 +24,15 @@ const FundCard = ({
   room,
 }: FundCardProps) => {
   return (
-      <Box
-        className="border border-gray-200 bg-white bg-opacity-60 bg-clip-padding shadow-lg hover:scale-105 sm:rounded-3xl sm:p-6 cursor-pointer"
-        maxW={{ base: 'sm', md: 'lg' }}
-      >
+    <Box
+    className="border border-gray-200 bg-white bg-opacity-60 bg-clip-padding shadow-lg hover:scale-105 sm:rounded-3xl sm:p-6 cursor-pointer"
+    maxW={{ base: 'sm', md: 'lg' }}
+    maxH="md"
+  >
         <Image
           src={image}
           alt={title}
-          className="aspect-square h-full w-full rounded-md object-cover"
+          className="aspect-square h-50 w-full rounded-md object-cover"
         />
 
         {isFunded && (
