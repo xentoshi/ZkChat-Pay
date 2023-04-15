@@ -8,11 +8,16 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 html,
 body {
-	background-color: black;
+	background-color:#1e453e;
 	font-family: 'Rubik';
 	font-weight: normal;
 	color: white;
@@ -23,6 +28,7 @@ h1 {
 h2 {
   margin-bottom: 0.5rem;
   font-weight: normal;
+  font-size: large;
 }
 
 p {
