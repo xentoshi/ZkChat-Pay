@@ -13,8 +13,11 @@ export default function Home() {
 		});
 	}, []);
 
+	const [show,setShow] = useState(false);
+
 	const onSuccess = (result: ISuccessResult) => {
 		console.log(result);
+		setShow(true);
 	};
 
 	const [projects, setProjects] = useState([]);
@@ -39,21 +42,24 @@ export default function Home() {
 					{({ open }) => <button onClick={open} className="rounded-full p-4 bg-indigo-400">Sign in with Worldcoin</button>}
 				</IDKitWidget>
 			</div>
-			<div className="grid gap-7 md:grid-cols-4">
-				{projects.map((project, index) => (
-					<FundCard
-						key={index}
-						title={project.title}
-						description={project.description}
-						image={project.imageUrl}
-						isFunded = {project.isFunded}
-						nameOfProject = {project.projectName}
-						location={project.location}
-						fundingNeeds={project.funding}
-						room={project.room}
-					/>
-				))}
-    		</div>
+			{
+				show && 
+				<div className="grid gap-7 md:grid-cols-4">
+					{projects.map((project, index) => (
+						<FundCard
+							key={index}
+							title={project.title}
+							description={project.description}
+							image={project.imageUrl}
+							isFunded = {project.isFunded}
+							nameOfProject = {project.projectName}
+							location={project.location}
+							fundingNeeds={project.funding}
+							room={project.room}
+						/>
+					))}
+    			</div>
+			}
 		</div>
 	);
 }
