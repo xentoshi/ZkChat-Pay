@@ -15,11 +15,17 @@ Group chat functionality: Providing the ability for users to create and join gro
 Public Goods Projects that need to be funded are listed on /fund pg. Users can fund the projects using crosschain tokens.
 ![image](https://user-images.githubusercontent.com/95926324/232115490-472ef0b2-904d-4a7d-9431-dce549a8f913.png)
 
+Chatting users can go to the /transfer/USER_EVMADDRESS page where user can send BOB directly to another users' zkAddress.
+
 ## Bounties 
 
 Sismo Integration
 
 Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
+
+zkBob `directDeposit`
+
+The project integrated the `directDeposit` operation in `/transfer` page, which allows users to send BOB directly to someone's zkAddress from our project.
 
 / - landing pg
 
