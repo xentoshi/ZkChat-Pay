@@ -17,6 +17,7 @@
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
 		"@rainbow-me/rainbowkit": "^0.12.4",
+		"@sismo-core/sismo-connect-react": "^0.0.10",
 		"@worldcoin/idkit": "^0.4.8",
 		"alchemy-sdk": "^2.6.2",
 		"clsx": "^1.2.1",

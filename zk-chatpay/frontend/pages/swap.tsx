@@ -1,4 +1,5 @@
 
+// @ts-nocheck
 import { useState } from "react";
 import { Button, Input, Spinner, useToast } from "@chakra-ui/react";
 import { ethers } from "ethers";
@@ -17,7 +18,7 @@ const toAddress = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'; //contract addre
 const amount = '13100000000000000'; // .131 WETH is close to the minimum transaction size 
 
 const network = new String(NetworkEnum.ETHEREUM); //also compatible on ...
-
+const provider = new ethers.providers.JsonRpcProvider(nodeUrl);
 const broadcastApiUrl = 'https://tx-gateway.1inch.io/v1.1/' + network + '/broadcast';
 const baseURL = 'https://api.1inch.io/v5.0/';
 
@@ -30,7 +31,9 @@ const swapParams = {
 
 const blockchainProvider = new PrivateKeyProviderConnector(
     makerPrivateKey,
-    new ethers.providers.Web3Provider(nodeUrl)
+    provider
+
+    
   );
 
 const sdk = new FusionSDK({
