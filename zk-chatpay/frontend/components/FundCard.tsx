@@ -53,10 +53,14 @@ const FundCard = ({
           <Text>Name of Project: {nameOfProject}</Text>
           <Text>Purpose: {location}</Text>
           <Text>Estimated Funding Needs in ETH: {fundingNeeds}</Text>
-          <Text>Room No: {room}</Text>
+          <Text>Room No: {room}</Text>.
+          <Text>Eth Address: 0xCF8D2Da12A032b3f3EaDC686AB18551D8fD6c132</Text>
         </Box>
         <Link href="/borrow">
 				  <button className="rounded-full bg-indigo-400 p-4">Borrow</button>
+			  </Link>
+        <Link href="/repay">
+				  <button className="rounded-full bg-indigo-400 p-4">Repay</button>
 			  </Link>
       </Box>
   );
