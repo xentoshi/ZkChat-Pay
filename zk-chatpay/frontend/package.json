@@ -16,6 +16,7 @@
 		"@chakra-ui/react": "^2.5.5",
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
+		"@pushprotocol/restapi": "^1.2.2",
 		"@rainbow-me/rainbowkit": "^0.12.4",
 		"@sismo-core/sismo-connect-react": "^0.0.10",
 		"@worldcoin/idkit": "^0.4.8",

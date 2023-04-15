@@ -103,11 +103,11 @@ function ChatRoom({ socket, username, room }) {
   //       identityType: 2,
   //       notification: {
   //         title: `Your have recieved a new notification`,
-  //         body: `${msg}`,
+  //         body: `Project funded`,
   //       },
   //       payload: {
-  //         title: `Your new collection on rarx is verified`,
-  //         body: `Congratulations, now you can sell your nfts via your collection`,
+  //         title: `title`,
+  //         body: `Congratulations, your project has been funded`,
   //       },
   //       recipients: `eip155:80001:${signeradd}`,
   //       channel: `eip155:80001:${CHANNEL_ADDRESS}`,

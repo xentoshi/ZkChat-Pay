@@ -9,6 +9,7 @@ import Avatar from "public/imgs/avatar.png";
 import { connectBobContract, connectDDContract } from "@utils/contracts";
 import waitTransactionReceipt from "@utils/waitTransactionReceipt";
 import useTransaction from "@hooks/useInTransaction";
+import * as PushAPI from "@pushprotocol/restapi";
 
 const AddressProfil: React.FC = () => {
   const router = useRouter();
@@ -38,6 +39,30 @@ const AddressProfil: React.FC = () => {
           amount,
           data.zkAddress
         );
+
+        const sendMessageNotif = async (msg) => {
+          const signer = window?.ethereum.selectedAddress;
+          try {
+            const apiResponse = await PushAPI.payloads.sendNotification({
+              signer,
+              type: 3,
+              identityType: 2,
+              notification: {
+                title: `Your have recieved a new notification`,
+                body: `Project funded`,
+              },
+              payload: {
+                title: `title`,
+                body: `Congratulations, your project has been funded`,
+              },
+              recipients: `eip155:80001:signer`,
+              channel: `eip155:80001:`,
+              env: "staging",
+            });
+          } catch (err) {
+            console.error("Error: ", err);
+          }
+        };
         alert(`Deposite transaction sent successfully! hash: ${DDTX.hash}`);
       } catch (err) {
         if (err.code === "ACTION_REJECTED")
