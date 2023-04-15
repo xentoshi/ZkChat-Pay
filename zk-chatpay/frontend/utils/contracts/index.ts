@@ -20,6 +20,7 @@ export const connectBobContract = async () => {
     ); // instantiating new connection to the contract
     return { bobContract, signer };
   } catch (error) {
+    if(error.message.includes('Goerli')) throw error
     console.log("ERROR:", error);
     throw new Error("sorry something went wrong");
   }
