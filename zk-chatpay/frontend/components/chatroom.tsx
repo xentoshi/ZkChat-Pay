@@ -8,19 +8,39 @@ import { RLNFullProof, StrBigInt } from 'test-rlnjs/dist/types/types';
 import { useEpoch, useAppID, usePublishQueue, usePublishedMsgProofs }  from '../store/store';
 import { Registry } from 'test-rlnjs';
 import ethers from 'ethers';
+import { Alchemy, Network } from "alchemy-sdk";
+
+const config = {
+  apiKey: "EqjP7vuEbc9IVNQwXOTXL479afqc8ulv",
+  network: Network.ETH_MAINNET,
+};
+const alchemy = new Alchemy(config);
+// quicknode code
+// useEffect(() => {
+//   async function fetchData() {
+//     const response = await fetch('/api/nft');
+//     const data = await response.json();
+//     setNftData(data);
+//   }
+//   fetchData();
+// }, []);
 
 // import * as PushAPI from "@pushprotocol/restapi";
 
-// import and use a number of type bigint
 
 const _registry = new Registry()
 
 function ChatRoom({ socket, username, room }) {
-
+  const [nftData, setNftData] = useState(null);
   const [epoch, setEpoch] = useEpoch(BigInt(1));
   const [appID, setAppID] = useAppID(BigInt(12345674590));
 
+  const getNfts = async () => {
+    const nft = await alchemy.nft.getNftsForOwner("elanhalpern.eth");
+    console.log(nft);
+  };
 
+  getNfts();
 
   const rln = new RLN(
     '/rln/rln.wasm',

@@ -6,7 +6,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { BigNumber } from 'ethers';
 import {ethers } from 'ethers';
 import { useEffect } from 'react';
-console.log(ethers);
+
 const RepayForm = () => {
 //   const [provider, setProvider] = useState<any>([]);
   const [user, setUser] = useState('');
