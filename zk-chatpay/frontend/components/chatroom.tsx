@@ -30,9 +30,6 @@ function ChatRoom({ socket, username, room }) {
 
   );
   
-  const signal = "This is a test signal"
-
-
  async function generateProofWrapper(signal, merkleProof, epoch) {
   console.log(signal,merkleProof,epoch);
     const proof = await rln.generateProof(signal, merkleProof, epoch as StrBigInt);
@@ -41,15 +38,12 @@ function ChatRoom({ socket, username, room }) {
   
   _registry.addMember(rln.commitment)
 
-  const merkleProof = _registry.generateMerkleProof(rln.commitment) 
-
-  console.log(rln, _registry);
+  const merkleProof = _registry.generateMerkleProof(rln.commitment);
   
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
 //   addNewUser();
-
 
   const sendMessage = async () => {
 
