@@ -2,6 +2,8 @@ import { useCallback } from "react";
 import { IDKitWidget } from "@worldcoin/idkit";
 import styles from "../styles/Home.module.css";
 import type { ISuccessResult } from "@worldcoin/idkit";
+import { useEffect, useState } from "react";
+import FundCard from "../components/FundCard";
 
 export default function Home() {
 	const handleProof = useCallback((result: ISuccessResult) => {
@@ -15,6 +17,15 @@ export default function Home() {
 		console.log(result);
 	};
 
+	const [projects, setProjects] = useState([]);
+
+	useEffect(() => {
+		const storedProjects = JSON.parse(localStorage.getItem('projects'));
+		if (storedProjects) {
+		  setProjects(storedProjects);
+		}
+	  }, []);
+
 	return (
 		<div className={styles.container}>
 			<div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
@@ -23,12 +34,27 @@ export default function Home() {
 					signal="my_signal"
 					onSuccess={onSuccess}
 					handleVerify={handleProof}
-					app_id="get_this_from_the_dev_portal"
+					app_id="app_staging_e77bb67150ed4393c95a024501a7d7cd"
 					// walletConnectProjectId="get_this_from_walletconnect_portal"
 				>
 					{({ open }) => <button onClick={open}>Sign in with Worldcoin</button>}
 				</IDKitWidget>
 			</div>
+			<div className="card-container grid gap-5 md:grid-cols-4">
+				{projects.map((project, index) => (
+					<FundCard
+						key={index}
+						title={project.title}
+						description={project.description}
+						image={project.image}
+						isFunded = {project.isFunded}
+						nameOfProject = {project.projectName}
+						location={project.location}
+						fundingNeeds={project.funding}
+						room={project.room}
+					/>
+				))}
+    		</div>
 		</div>
 	);
 }

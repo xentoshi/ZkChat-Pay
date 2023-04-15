@@ -10,10 +10,13 @@
 		"marketplace": "npx create-web3-dapp marketplace"
 	},
 	"dependencies": {
+		"@aave/contract-helpers": "^1.15.0",
+		"@aave/math-utils": "^1.15.0",
 		"@chakra-ui/react": "^2.5.5",
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
 		"@rainbow-me/rainbowkit": "^0.12.4",
+		"@worldcoin/idkit": "^0.4.8",
 		"alchemy-sdk": "^2.6.2",
 		"clsx": "^1.2.1",
 		"ethers": "^5.7.2",
@@ -23,6 +26,7 @@
 		"react-dom": "18.2.0",
 		"react-hook-form": "^7.43.9",
 		"react-scroll-to-bottom": "^4.2.0",
+		"rlnjs": "^2.0.8",
 		"socket.io-client": "^4.6.1",
 		"wagmi": "^0.12.6"
 	},

@@ -1,46 +1,78 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { Input, Button } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-
-import "./styles.css";
+import { useState } from "react";
+import Head from "next/head";
+import FundCard from "./FundCard";
 
 export default function FormForProjects() {
+  const [formSuccess, setFormSuccess] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    // ADD FUNCTIONALITY HERE
-    console.log(data);
-  }; // your form submit function which will invoke after successful validation
 
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
+  const onSubmit = (data) => {
+    console.log(data);
+    setFormSuccess(true);
+  };
+
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="Name of the project" {...register("Ethereum Foundation")} />
-      <input defaultValue="Location" {...register("Delhi, India")} />
+    <>
+      {formSuccess ? (
+        <FundCard
+          title={watch("title")}
+          description={watch("description")}
+          image={watch("image")}
+          nameOfProject={watch("nameOfProject")}
+          location={watch("location")}
+          fundingNeeds={watch("fundingNeeds")}
+          room={watch("room")}
+        />
+      ) : (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* register your input into the hook by invoking the "register" function */}
+          <Input
+            defaultValue="Title"
+            {...register("title", { required: true })}
+          />
+          <Input
+            defaultValue="Description"
+            {...register("description", { required: true })}
+          />
+          <Input
+            defaultValue="Image URL"
+            {...register("image", { required: true })}
+          />
+          <Input
+            defaultValue="Name of the project"
+            {...register("nameOfProject", { required: true })}
+          />
+          <Input defaultValue="Location" {...register("location", { required: true })} />
+          <Input
+            defaultValue="Funding needs in ETH"
+            {...register("fundingNeeds", { required: true, type: "number" })}
+          />
+          <Input defaultValue="Room" {...register("room", { required: true })} />
 
-      <input defaultValue="Funding needs in ETH" {...register("example", {type: "number"})} />
-      
-      <input 
-        {...register("email", { required: "Email Address is required" })} 
-        aria-invalid={errors.mail ? "true" : "false"} 
-      />
-      {errors.mail && <p role="alert">{errors.mail?.message}</p>}
-
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <p>This field is required</p>}
-
-      <input type="submit" />
-    </form>
+          <Button type="submit">Submit</Button>
+        </form>
+      )}
+    </>
   );
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+
+
+
+
+// const onSubmit = (data) => {
+//   // retrieve any existing projects data from localStorage or create an empty array if there is no data
+//   const projects = JSON.parse(localStorage.getItem("projects")) || [];
+//   projects.push(data);
+//   localStorage.setItem("projects", JSON.stringify(projects));
+//   console.log(data);
+//   setFormSuccess(true);
+// };

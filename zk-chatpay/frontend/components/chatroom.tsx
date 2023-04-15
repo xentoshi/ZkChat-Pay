@@ -7,7 +7,8 @@ import { RLNFullProof, StrBigInt } from 'rlnjs/dist/types/types';
 // import { addNewUser } from "./store/users";
 import { useEpoch, useAppID, usePublishQueue, usePublishedMsgProofs }  from '../store/store';
 import { Registry } from 'rlnjs';
-
+import ethers from 'ethers';
+// import * as PushAPI from "@pushprotocol/restapi";
 
 // import and use a number of type bigint
 
@@ -57,6 +58,30 @@ function ChatRoom({ socket, username, room }) {
       setCurrentMessage("");
     }
   };
+
+  // const sendMessageNotif = async (msg) => {
+  //   const signer = window?.ethereum.selectedAddress;
+  //   try {
+  //     const apiResponse = await PushAPI.payloads.sendNotification({
+  //       signer,
+  //       type: 3,
+  //       identityType: 2,
+  //       notification: {
+  //         title: `Your have recieved a new notification`,
+  //         body: `${msg}`,
+  //       },
+  //       payload: {
+  //         title: `Your new collection on rarx is verified`,
+  //         body: `Congratulations, now you can sell your nfts via your collection`,
+  //       },
+  //       recipients: `eip155:80001:${signeradd}`,
+  //       channel: `eip155:80001:${CHANNEL_ADDRESS}`,
+  //       env: "staging",
+  //     });
+  //   } catch (err) {
+  //     console.error("Error: ", err);
+  //   }
+  // };
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
