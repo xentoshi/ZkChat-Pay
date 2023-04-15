@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import styles from "../styles/chat.module.css";
 import { RLN, VerificationKey } from "test-rlnjs";
-import vkey from '../rln/verification_key.json';
+import vkey from '../public/rln/verification_key.json';
 import { RLNFullProof, StrBigInt } from 'test-rlnjs/dist/types/types';
 // import { addNewUser } from "./store/users";
 import { useEpoch, useAppID, usePublishQueue, usePublishedMsgProofs }  from '../store/store';
@@ -34,7 +34,8 @@ function ChatRoom({ socket, username, room }) {
 
 
  async function generateProofWrapper(signal, merkleProof, epoch) {
-    const proof = await rln.generateProof(signal, merkleProof, epoch);
+  console.log(signal,merkleProof,epoch);
+    const proof = await rln.generateProof(signal, merkleProof, epoch as StrBigInt);
     console.log(proof,'proof');
   }
   
@@ -52,7 +53,7 @@ function ChatRoom({ socket, username, room }) {
 
   const sendMessage = async () => {
 
-    await generateProofWrapper(signal,merkleProof,epoch);
+    await generateProofWrapper(currentMessage,merkleProof,epoch);
     if (currentMessage !== "") {
       const messageData = {
         room: room,

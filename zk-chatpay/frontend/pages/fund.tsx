@@ -13,7 +13,7 @@ export default function Home() {
 		});
 	}, []);
 
-	const [show,setShow] = useState(false);
+	const [show,setShow] = useState(true);
 
 	const onSuccess = (result: ISuccessResult) => {
 		console.log(result);

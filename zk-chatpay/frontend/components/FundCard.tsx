@@ -55,6 +55,9 @@ const FundCard = ({
           <Text>Estimated Funding Needs in ETH: {fundingNeeds}</Text>
           <Text>Room No: {room}</Text>
         </Box>
+        <Link href="/borrow">
+				  <button className="rounded-full bg-indigo-400 p-4">Borrow</button>
+			  </Link>
       </Box>
   );
 };

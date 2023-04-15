@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState } from 'react';
 import { Button, Input, VStack } from '@chakra-ui/react';
 import { Pool, InterestRate } from '@aave/contract-helpers';
@@ -10,7 +9,7 @@ import { useEffect } from 'react';
 
 const BorrowForm = () => {
 
-  const [provider,setProvider] = useState<any>([]);  
+  const [provider, setProvider] = useState<any | null>(null);
   const [user, setUser] = useState('');
   const [reserve, setReserve] = useState('');
   const [amount, setAmount] = useState('');
@@ -21,16 +20,14 @@ const BorrowForm = () => {
   const [txs, setTxs] = useState([]);
 
   useEffect(() => {
-    if(Window){
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+    if (typeof window !== 'undefined' && window.ethereum) {
+      console.log(ethers);
+      // const provider = new ethers.providers.JsonRpcProvider('https://goerli.infura.io/v3/95f3b4611a8b480cb893abd71579bf09');
       setProvider(provider);
     }
-  },[]);
+  }, []);
+  
 
-  const pool = new Pool(provider, {
-    POOL: '0x3De59b6901e7Ad0A19621D49C5b52cC9a4977e52',
-    WETH_GATEWAY: '0x9c402E3b0D123323F0FCed781b8184Ec7E02Dd31',
-  });
 
   const submitTransaction = async (provider: any, tx: any) => {
     const extendedTxData = await tx.tx();
@@ -45,6 +42,11 @@ const BorrowForm = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const pool = new Pool(provider, {
+      POOL: '0x3De59b6901e7Ad0A19621D49C5b52cC9a4977e52',
+      WETH_GATEWAY: '0x9c402E3b0D123323F0FCed781b8184Ec7E02Dd31',
+    });
+  
     const tx = await pool.borrow({
       user,
       reserve: '0xcbE9771eD31e761b744D3cB9eF78A1f32DD99211', // Goerli GHO market
@@ -74,7 +76,7 @@ const BorrowForm = () => {
           <Input placeholder="Debt token address" value={debtTokenAddress} onChange={(event) => setDebtTokenAddress(event.target.value)} />
           <Input placeholder="On behalf of" value={onBehalfOf} onChange={(event) => setOnBehalfOf(event.target.value)} />
           <Input placeholder="Referral code" value={referralCode} onChange={(event) => setReferralCode(event.target.value)} />
-          <Button className='rounded-full text-black bg-indigo-400 p-4' type="submit">Borrow</Button>
+          <Button className='rounded-full text-black bg-indigo-400 p-4' type="submit">Borrow GHO</Button>
         </VStack>
       </form>
     </div>
