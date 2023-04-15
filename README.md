@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/95926324/232004303-2d900083-17c2-404f-af3c-fb81b9275374.png)
 
-Decentralised ZK messaging with Defi Features
+Decentralised ZK messaging with Defi Features X Fund the best Public Good Projects with Zk.
 
 Project where the users would be easily able to chat with other users and send them money through zk .
 
