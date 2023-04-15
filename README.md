@@ -23,6 +23,8 @@ Sismo Integration
 
 Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
 
+https://github.com/xentoshi/ZkChat-Pay/commit/2977618360a33d938ee92a451ea8e2bd6a54a9f2
+
 zkBob `directDeposit`
 
 The project integrated the `directDeposit` operation in `/transfer` page, which allows users to send BOB directly to someone's zkAddress from our project.
