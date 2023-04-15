@@ -6,6 +6,15 @@ export default function Navbar() {
 			<a href="/">
 				<img className={styles.logo} src="/logo.png"></img>
 			</a>
+			<a href="/chat">
+				<button class="rounded-full bg-indigo-400 p-4">Chat</button>
+			</a>
+			<a href="/fund">
+				<button class="rounded-full bg-indigo-400 p-4">Fund</button>
+			</a>
+			<a href="/funding">
+				<button class="rounded-full bg-indigo-400 p-4">Funding</button>
+			</a>
 			<ConnectButton />
 		</nav>
 	);
