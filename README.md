@@ -16,6 +16,11 @@ Public Goods Projects that need to be funded are listed on /fund pg. Users can f
 ![image](https://user-images.githubusercontent.com/95926324/232115490-472ef0b2-904d-4a7d-9431-dce549a8f913.png)
 
 Chatting users can go to the /transfer/USER_EVMADDRESS page where user can send BOB directly to another users' zkAddress.
+live video for introduction:
+
+https://user-images.githubusercontent.com/97211928/232255956-e9c22992-53fd-4d7d-913e-568b1f5d83bc.mp4
+
+
 
 ## Bounties 
 
