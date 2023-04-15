@@ -19,12 +19,7 @@ const AddressProfil: React.FC = () => {
     setValue,
     reset,
     formState: { errors },
-  } = useForm<{ zkAddress: string; amount: number }>({
-    defaultValues: {
-      zkAddress: "",
-      amount: 0,
-    },
-  });
+  } = useForm<{ zkAddress: string; amount: string }>();
   const { address: senderAdd } = useAccount();
 
   const _handleTransfer = useCallback(
@@ -50,6 +45,7 @@ const AddressProfil: React.FC = () => {
         else if (err.message.includes("Goerli")) {
           alert("Please change network to Goerli");
         } else {
+          console.log("err", err);
           alert("Somethign went wrong");
         }
       }
@@ -105,7 +101,7 @@ const AddressProfil: React.FC = () => {
               defaultValue={0}
               {...(register("amount"),
               { required: true, min: 100000000000000000 })}
-              onChange={(e) => setValue("amount", parseFloat(e.target.value))}
+              onChange={(e) => setValue("amount", e.target.value)}
             />
             {errors.amount && (
               <span className="text-red-600">This field is required</span>
