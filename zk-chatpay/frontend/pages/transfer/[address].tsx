@@ -1,12 +1,14 @@
-import { useCallback, useEffect } from "react";
-import { ethers } from "ethers";
+import { useCallback } from "react";
+import { ethers, BigNumber } from "ethers";
 import { useForm } from "react-hook-form";
 import { useAccount } from "wagmi";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { BigNumber } from "ethers";
+import cx from "clsx";
 import Avatar from "public/imgs/avatar.png";
 import { connectBobContract, connectDDContract } from "@utils/contracts";
+import waitTransactionReceipt from "@utils/waitTransactionReceipt";
+import useTransaction from "@hooks/useInTransaction";
 
 const AddressProfil: React.FC = () => {
   const router = useRouter();
@@ -19,29 +21,36 @@ const AddressProfil: React.FC = () => {
   } = useForm<{ zkAddress: string; amount: string }>();
   const { address: senderAdd } = useAccount();
 
-  const handleTransfer = useCallback(
+  const _handleTransfer = useCallback(
     handleSubmit(async (data: any) => {
       try {
         const { bobContract } = await connectBobContract();
         const { DDContract } = await connectDDContract();
         let amount = BigNumber.from(data.amount);
-        let bobTx = await bobContract.approve(
+        let bobTx: { hash: string } = await bobContract.approve(
           "0xE4C77B7787cC116A5E1549c5BB36DE07732100Bb",
           amount
         );
-        debugger;
-        let DDTX = await DDContract.directDeposit(
+        const txReceipt = await waitTransactionReceipt(bobTx.hash);
+        let DDTX: { hash: string } = await DDContract.directDeposit(
           ethers.utils.getAddress(senderAdd),
           amount,
           data.zkAddress
         );
-        debugger;
+        alert(`Deposited successfully! hash: ${DDTX.hash}`);
       } catch (err) {
-        console.log(err);
+        if (err.code === "ACTION_REJECTED")
+          alert("User rejected the transaction");
+        else {
+          alert("Somethign went wrong");
+        }
       }
     }),
     [connectBobContract]
   );
+
+  const { inTransaction, execTransaction: handleTransfer } =
+    useTransaction(_handleTransfer);
 
   return (
     <div className="flex flex-col items-center gap-y-[24px] grow font-normal">
@@ -58,14 +67,14 @@ const AddressProfil: React.FC = () => {
         <div className="text-[24px] flex justify-center w-full">
           Please fill the follow information for transaction
         </div>
-        <div className="flex flex-col gap-y-[10px] w-[300px]">
-          <div className="flex flex-row w-[300px]">
-            <label htmlFor="zkAddress" className="mr-[10px] w-[90px]">
+        <div className="flex flex-col gap-y-[10px] w-[430px]">
+          <div className="flex flex-row w-[430px]">
+            <label htmlFor="zkAddress" className="mr-[10px] w-[165px]">
               zkAddress:
             </label>
             <input
               id="zkAddress"
-              className="pl-[4px] bg-transparent border border-white rounded-[4px]"
+              className="pl-[4px] w-[265px] bg-transparent border border-white rounded-[4px]"
               {...(register("zkAddress"), { required: true })}
               onChange={(e) => setValue("zkAddress", e.target.value)}
             />
@@ -74,14 +83,19 @@ const AddressProfil: React.FC = () => {
             )}
           </div>
           <div className="flex flex-row">
-            <label htmlFor="amount" className="mr-[10px] w-[90px]">
+            <label
+              htmlFor="amount"
+              className="mr-[10px] flex flex-col w-[165pxx]"
+            >
               amount:
+              <div>(greater than 0.1BOB)</div>
             </label>
             <input
               id="amount"
               type="number"
-              className="pl-[4px] bg-transparent border border-white rounded-[4px]"
-              {...(register("amount"), { required: true })}
+              className="pl-[4px] w-[265px] bg-transparent border border-white rounded-[4px]"
+              {...(register("amount"),
+              { required: true, min: 100000000000000000 })}
               onChange={(e) => setValue("amount", e.target.value)}
             />
             {errors.amount && (
@@ -92,7 +106,10 @@ const AddressProfil: React.FC = () => {
         <input
           type="submit"
           value="Pay"
-          className="mt-[14px] px-[32px] h-[32px] text-black bg-white rounded-[4px] cursor-pointer"
+          className={cx(
+            "mt-[14px] px-[32px] h-[32px] text-black bg-white rounded-[4px] cursor-pointer",
+            inTransaction && "opacity-30 pointer-events-none"
+          )}
         />
       </form>
     </div>
