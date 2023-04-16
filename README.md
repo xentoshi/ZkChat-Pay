@@ -41,7 +41,7 @@ https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/api/n
 
 ## Aave Grants DAO
 
-![image](https://user-images.githubusercontent.com/37624021/232261893-2137ed47-fe6a-455c-953e-3610447d5682.png)
+<img src="https://docs.gho.xyz/assets/images/Aave_ghost-e19c8d68e0e0f7bf40fa61968b8bbf64.png" alt="aave" width="80" />
 
 GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.
 
@@ -59,7 +59,7 @@ For swapping of Different tokens inorder to fund the proposals in the best way f
 
 ## Sismo Integration
 
-![image](https://user-images.githubusercontent.com/37624021/232261862-7b1ac54d-6946-41d9-ac11-3761a283a071.png)
+<img src="https://user-images.githubusercontent.com/37624021/232261862-7b1ac54d-6946-41d9-ac11-3761a283a071.png" alt="sismo" width="120" />
 
 Sismo's on-chain Verification is used to autheticate the users and with the help of zkProof generated we verify if the user was an early supporter of the specific fund raiser campaign or not. 
 
@@ -81,7 +81,6 @@ https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/fund.
 
 ## ZkBob `directDeposit` is utilised for doing zkPayments
 
-![image](https://user-images.githubusercontent.com/37624021/232261883-9452fdd5-10d7-4424-834d-2be0c8b6721d.png)
 
 -> The project integrated the `directDeposit` operation in `/transfer` page, which allows users to send BOB directly to someone's zkAddress from our project.
 
