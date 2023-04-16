@@ -24,7 +24,35 @@ https://user-images.githubusercontent.com/97211928/232255956-e9c22992-53fd-4d7d-
 
 ## Bounties 
 
-Sismo Integration
+## Ethereum Foundation
+
+Our Dapp is Powered by ZK and RLN for spam prevention , 
+users are required to generate proofs each time they need to send the message. RLN helps to keep the conversations spam free and maintains a registery with proofs of the published msges.
+
+https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/components/chatroom.tsx#L39
+
+## QuickNode NFT-APi
+
+Quicknode's NFT-api is used to get the NFT of the user which is utilised to give the avatar in the zk-chat.
+
+https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/api/nft.js
+
+## Aave Grants DAO
+
+GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.
+
+GHO tokens are used by the owner of proposals to buy the GHO stablecoin from the market and initiate their flow . Later they return and repay the GHO tokens.
+
+https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/borrow.tsx  , 
+https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/repay.tsx
+
+## Sismo Integration
+
+Sismo's on-chain Verification is used to autheticate the users and with the help of zkProof generated we verify if the user was an early supporter of the specific fund raiser campaign or not. 
+
+If he/she was then they are given the ability to accept the zk-airdrops.
+
+https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/chat.tsx
 
 Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
 
@@ -35,9 +63,7 @@ zkBob `directDeposit`
 The project integrated the `directDeposit` operation in `/transfer` page, which allows users to send BOB directly to someone's zkAddress from our project.
 
 
-# GHO
 
-GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.
 
 / - landing pg
 
