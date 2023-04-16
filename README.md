@@ -57,13 +57,15 @@ https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/repay
 
 For swapping of Different tokens inorder to fund the proposals in the best way for the supporters
 
+https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/swap.tsx
+
 ## Sismo Integration
 
 <img src="https://user-images.githubusercontent.com/37624021/232261862-7b1ac54d-6946-41d9-ac11-3761a283a071.png" alt="sismo" width="120" />
 
 Sismo's on-chain Verification is used to autheticate the users and with the help of zkProof generated we verify if the user was an early supporter of the specific fund raiser campaign or not. 
 
-If he/she was then they are given the ability to accept the zk-airdrops.
+If he/she was a part of early supporters of the campaign then they are given the ability to accept the zk-airdrops by generating claims.
 
 https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/chat.tsx
 
