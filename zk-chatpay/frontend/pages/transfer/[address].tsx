@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useCallback } from "react";
 import { ethers, BigNumber } from "ethers";
 import { useForm } from "react-hook-form";
@@ -41,7 +42,7 @@ const AddressProfil: React.FC = () => {
         );
 
         const sendMessageNotif = async (msg) => {
-          const signer = window?.ethereum.selectedAddress;
+          const signer = window?.ethereum;
           try {
             const apiResponse = await PushAPI.payloads.sendNotification({
               signer,
@@ -54,10 +55,11 @@ const AddressProfil: React.FC = () => {
               payload: {
                 title: `title`,
                 body: `Congratulations, your project has been funded`,
+                cta: `d`,
+                img: ``
               },
               recipients: `eip155:80001:signer`,
               channel: `eip155:80001:`,
-              env: "staging",
             });
           } catch (err) {
             console.error("Error: ", err);
