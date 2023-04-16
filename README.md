@@ -4,7 +4,7 @@
 
 Decentralised ZK messaging with Defi Features X Fund the best Public Good Projects with Zk.
 
-Project where the users would be easily able to chat with other users and send them money through zk .
+Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
 
 Features:- 
 
@@ -51,11 +51,16 @@ https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/borro
 https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/repay.tsx
 
 
-## 1inch Fusion Swap 
+## 1inch Fusion Swap provides swapping with 0 Gas Fee
 
 ![image](https://user-images.githubusercontent.com/37624021/232261846-9776c2a4-9f7d-419c-9bfa-44b716621b99.png)
 
-For swapping of Different tokens inorder to fund the proposals in the best way for the supporters
+1inch is very useful in the context of funding a proposal, as it enables individuals or organizations to easily convert one type of token into another in order to provide funding.
+
+For Example- A proposal is seeking funding in ETH, but a potential funder only has DAI. 
+Using 1inch swap , the funder could swap their DAI for ETH, without having to go through the process of transferring their DAI to an exchange that supports DAI/ETH trading pairs. 
+
+This can save time and reduce the fees associated with multiple transactions.
 
 https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/swap.tsx
 
@@ -69,7 +74,9 @@ If he/she was a part of early supporters of the campaign then they are given the
 
 https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/chat.tsx
 
-Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
+Sismo will be used to zk airdrop tokens to the early supporters.
+so essentially using that zkproof to generate a claim that they were early supporters something like that 🚀🤞🏻
+
 
 https://github.com/xentoshi/ZkChat-Pay/commit/2977618360a33d938ee92a451ea8e2bd6a54a9f2
 
