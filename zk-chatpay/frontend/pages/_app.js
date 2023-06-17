@@ -38,7 +38,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
+  appName: 'Zk-Chat&Pay',
   projectId: '7185920a3bce143618e82904c0c57ea8',
   chains
 });
