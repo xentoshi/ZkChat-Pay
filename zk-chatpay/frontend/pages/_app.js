@@ -38,8 +38,9 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "My Alchemy DApp",
-  chains,
+  appName: 'Zk-Chat&Pay',
+  projectId: '7185920a3bce143618e82904c0c57ea8',
+  chains
 });
 
 const wagmiClient = createClient({
