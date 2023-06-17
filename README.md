@@ -19,6 +19,21 @@ live video for introduction:
 
 https://user-images.githubusercontent.com/97211928/232255956-e9c22992-53fd-4d7d-913e-568b1f5d83bc.mp4
 
+### Description
+
+Our project, Zk-Chat&Pay, is a decentralized messaging platform with integrated DeFi features. It aims to address the problem of secure and private communication while providing a seamless way to fund public good projects. 
+
+🔒 The problem we identified is the lack of privacy and security in traditional messaging platforms, where user data can be vulnerable to surveillance and hacking. Additionally, there is a need for a convenient and transparent way to fund public good projects. 
+
+🔐 Zk-Chat&Pay solves these problems by leveraging zero-knowledge proofs (ZKPs) for secure messaging and integrating decentralized finance (DeFi) functionalities for funding public good projects. By utilizing ZKPs, our platform ensures that user communications remain private and anonymous, protecting sensitive information from unauthorized access. Users can engage in encrypted conversations with confidence, knowing that their messages are secure. 
+
+💸 In terms of funding public good projects, Zk-Chat&Pay provides a seamless process for users to inquire about projects through the messaging feature and directly fund them using cross-chain tokens. This eliminates the need for intermediaries and ensures that funds reach the intended projects quickly and transparently. 
+
+🚀 Our differentiator lies in the combination of secure messaging and DeFi capabilities within a single platform. By integrating these two aspects, we provide a comprehensive solution that caters to both communication privacy and efficient project funding. 
+
+💡 The idea for Zk-Chat&Pay emerged from our exploration of ZK and DeFi technologies during the EthTokyo hackathon. We wanted to create something that would have practical utility in the real world and address existing gaps. The concept of a secure messaging platform with integrated DeFi features resonated with us as it offers the potential to enhance privacy, security, and transparency in both personal and public interactions. 
+
+🌟 Through our project, we aim to empower users with secure zk communication while enabling them to contribute to public good projects effortlessly.
 
 ## Bounties 
 
