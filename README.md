@@ -2,9 +2,9 @@
 
 ![image](https://user-images.githubusercontent.com/95926324/232004303-2d900083-17c2-404f-af3c-fb81b9275374.png)
 
-Decentralised ZK messaging with Defi Features X Fund the best Public Good Projects with Zk.
+Decentralised ZK messaging with Defi Features to Fund the best Public Good Projects with Zk.
 
-Project where the users would be easily able to Fund the Public goods proposals while inquire about the project through zk chat & fund them money through zk .
+Project where the users would be easily able to fund the public goods proposals while inquire about the project through zk chat & fund them money through zk.
 
 Features:- 
 
@@ -35,87 +35,18 @@ Our project, Zk-Chat&Pay, is a decentralized messaging platform with integrated 
 
 🌟 Through our project, we aim to empower users with secure zk communication while enabling them to contribute to public good projects effortlessly.
 
-## Bounties 
+## Technologies used in ZkChat&Pay
 
-## Ethereum Foundation
-
-<img src="https://avatars.githubusercontent.com/u/108887131?s=200&v=4" alt="rln" />
-
-Our Dapp is Powered by ZK and RLN for spam prevention , 
-users are required to generate proofs each time they need to send the message. 
-
-RLN helps to keep the conversations spam free and maintains a registery with proofs of the published msges.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/components/chatroom.tsx#L39
-
-## QuickNode NFT-APi
-
-Quicknode's NFT-api is used to get the NFT of the user which is utilised to give the avatar in the zk-chat.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/api/nft.js
-
-## Aave Grants DAO
-
-<img src="https://docs.gho.xyz/assets/images/Aave_ghost-e19c8d68e0e0f7bf40fa61968b8bbf64.png" alt="aave" width="80" />
-
-GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.
-
-GHO tokens are used by the owner of proposals to buy the GHO stablecoin from the market and initiate their flow . Later they return and repay the GHO tokens.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/borrow.tsx  , 
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/repay.tsx
-
-
-## 1inch Fusion Swap provides swapping with 0 Gas Fee
-
-![image](https://user-images.githubusercontent.com/37624021/232261846-9776c2a4-9f7d-419c-9bfa-44b716621b99.png)
-
-1inch is very useful in the context of funding a proposal, as it enables individuals or organizations to easily convert one type of token into another in order to provide funding.
-
-For Example- A proposal is seeking funding in ETH, but a potential funder only has DAI. 
-Using 1inch swap , the funder could swap their DAI for ETH, without having to go through the process of transferring their DAI to an exchange that supports DAI/ETH trading pairs. 
-
-This can save time and reduce the fees associated with multiple transactions.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/swap.tsx
-
-## Sismo Integration
-
-<img src="https://user-images.githubusercontent.com/37624021/232261862-7b1ac54d-6946-41d9-ac11-3761a283a071.png" alt="sismo" width="120" />
-
-Sismo's on-chain Verification is used to autheticate the users and with the help of zkProof generated we verify if the user was an early supporter of the specific fund raiser campaign or not. 
-
-If he/she was a part of early supporters of the campaign then they are given the ability to accept the zk-airdrops by generating claims.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/chat.tsx
-
-Sismo will be used to zk airdrop tokens to the early supporters.
-so essentially using that zkproof to generate a claim that they were early supporters something like that 🚀🤞🏻
-
-
-https://github.com/xentoshi/ZkChat-Pay/commit/2977618360a33d938ee92a451ea8e2bd6a54a9f2
-
-## Worldcoin
-
-![image](https://user-images.githubusercontent.com/37624021/232261806-c247c0ff-0b4a-4378-b447-a03787f446c2.png)
-
-We utilised worldcoin as a pivot point for our app to prevent bots from creating fund proposals on our platforms and hence now the platform is idea for real person in needs to get funding from other users.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/fund.tsx
-
-## ZkBob `directDeposit` is utilised for doing zkPayments
-
-
--> The project integrated the `directDeposit` operation in `/transfer` page, which allows users to send BOB directly to someone's zkAddress from our project.
-
--> Through `ZkBob` supporters can easily fund the proposals too.
-
-https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/transfer/%5Baddress%5D.tsx
-
-## Push Protocol
-
--> Inorder to Notify the proposal Owner Whenever someone Funds their proposal. 
-
+| Protocol | Description | Code Link |
+| --- | --- | --- |
+| Ethereum Foundation | Powered by ZK and RLN for spam prevention, requiring users to generate proofs for sending messages | [Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/components/chatroom.tsx#L39) |
+| QuickNode NFT-API | Used to get the user's NFT for avatar display in Zk-Chat | [Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/api/nft.js) |
+| Aave Grants DAO | GHO stablecoin integration for funding proposals and repayment | [Borrow Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/borrow.tsx), [Repay Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/repay.tsx) |
+| 1inch Fusion Swap | Enables token swapping with 0 gas fees, facilitating funding in different token types | [Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/swap.tsx) |
+| Sismo Integration | On-chain verification to authenticate users and generate zkProofs for early supporter claims | [Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/chat.tsx) |
+| Worldcoin | Used as a pivot point to prevent bots and ensure genuine funding proposals | [Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/fund.tsx) |
+| ZkBob | Utilized the `directDeposit` operation for zkPayments and funding proposals | [Code Link](https://github.com/xentoshi/ZkChat-Pay/blob/main/zk-chatpay/frontend/pages/transfer/%5Baddress%5D.tsx) |
+| Push Protocol | Notifies proposal owners when their proposals receive funding | N/A |
 
 # Navigation to different pages
 
